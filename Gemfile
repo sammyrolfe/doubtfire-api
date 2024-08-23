@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 
 # Ruby versions for various enviornments
 ruby_versions = {
-  development: '~>3.3.0',
+  development: '~>3.1.4',
   test: '~>3.3.0',
   staging: '~>3.3.0',
   production: '~>3.3.0'
