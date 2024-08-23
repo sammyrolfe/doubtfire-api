@@ -87,6 +87,9 @@ class ApiRoot < Grape::API
   mount WebcalApi
   mount WebcalPublicApi
 
+  mount Courseflow::CourseMapApi
+  mount Courseflow::CourseMapUnitApi
+
   mount Courseflow::RequirementSetApi
 
   #

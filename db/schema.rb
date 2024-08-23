@@ -11,7 +11,11 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.1].define(version: 2024_05_28_223908) do
+<<<<<<< HEAD
   create_table "activity_types", charset: "utf8mb3", collation: "utf8mb3_unicode_ci", force: :cascade do |t|
+=======
+  create_table "activity_types", charset: "utf8", collation: "utf8_unicode_ci", force: :cascade do |t|
+>>>>>>> origin/feature/coursemapapi
     t.string "name", null: false
     t.string "abbreviation", null: false
     t.datetime "created_at", null: false
@@ -52,6 +56,23 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_28_223908) do
     t.index ["task_comment_id", "user_id"], name: "index_comments_read_receipts_on_task_comment_id_and_user_id", unique: true
     t.index ["task_comment_id"], name: "index_comments_read_receipts_on_task_comment_id"
     t.index ["user_id"], name: "index_comments_read_receipts_on_user_id"
+  end
+
+  create_table "course_map_units", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
+    t.integer "courseMapId"
+    t.integer "unitId"
+    t.integer "yearSlot"
+    t.integer "teachingPeriodSlot"
+    t.integer "unitSlot"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "course_maps", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
+    t.integer "userId"
+    t.integer "courseId"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "courses", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
