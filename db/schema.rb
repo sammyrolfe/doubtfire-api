@@ -10,13 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
 ActiveRecord::Schema[7.1].define(version: 2024_05_28_223908) do
-=======
-ActiveRecord::Schema[7.1].define(version: 2024_05_21_081106) do
->>>>>>> 06e3fa02 (feat: add course_map api)
 <<<<<<< HEAD
-  create_table "activity_types", charset: "utf8mb3", collation: "utf8mb3_unicode_ci", force: :cascade do |t|
+<<<<<<< HEAD
+  create_table "activity_types", charset: "utf8mb3mb3", collation: "utf8mb3mb3_unicode_ci", force: :cascade do |t|
+=======
+  create_table "activity_types", charset: "utf8", collation: "utf8_unicode_ci", force: :cascade do |t|
+>>>>>>> 07a4cc0b (Update schema.rb)
 =======
   create_table "activity_types", charset: "utf8", collation: "utf8_unicode_ci", force: :cascade do |t|
 >>>>>>> origin/feature/coursemapapi
@@ -72,6 +72,16 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_21_081106) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "course_map_units", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
+    t.integer "courseMapId"
+    t.integer "unitId"
+    t.integer "yearSlot"
+    t.integer "teachingPeriodSlot"
+    t.integer "unitSlot"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "course_maps", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
     t.integer "userId"
     t.integer "courseId"
@@ -106,7 +116,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_21_081106) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "discussion_comments", charset: "utf8mb3", collation: "utf8mb3_unicode_ci", force: :cascade do |t|
+  create_table "discussion_comments", charset: "utf8mb3mb3", collation: "utf8mb3mb3_unicode_ci", force: :cascade do |t|
     t.datetime "time_started"
     t.datetime "time_completed"
     t.integer "number_of_prompts"
