@@ -90,6 +90,8 @@ class ApiRoot < Grape::API
   mount Courseflow::CourseApi
   mount Courseflow::UnitDefinitionApi
 
+  mount Courseflow::RequirementSetApi
+
   #
   # Add auth details to all end points
   #

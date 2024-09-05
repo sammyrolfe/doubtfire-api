@@ -10,8 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_09_02_043953) do
-  create_table "activity_types", charset: "utf8mb3", collation: "utf8mb3_unicode_ci", force: :cascade do |t|
+
+ActiveRecord::Schema[7.1].define(version: 2024_05_28_223908) do
+  create_table "activity_types", charset: "utf8", collation: "utf8_unicode_ci", force: :cascade do |t|
     t.string "name", null: false
     t.string "abbreviation", null: false
     t.datetime "created_at", null: false
@@ -53,6 +54,34 @@ ActiveRecord::Schema[7.1].define(version: 2024_09_02_043953) do
     t.index ["task_comment_id"], name: "index_comments_read_receipts_on_task_comment_id"
     t.index ["user_id"], name: "index_comments_read_receipts_on_user_id"
   end
+
+  create_table "course_map_units", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
+    t.integer "courseMapId"
+    t.integer "unitId"
+    t.integer "yearSlot"
+    t.integer "teachingPeriodSlot"
+    t.integer "unitSlot"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "course_maps", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
+    t.integer "userId"
+    t.integer "courseId"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "courses", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
+    t.string "name"
+    t.string "code"
+    t.integer "year"
+    t.string "version"
+    t.string "url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
 
   create_table "course_map_units", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
     t.integer "courseMapId"
@@ -223,6 +252,15 @@ ActiveRecord::Schema[7.1].define(version: 2024_09_02_043953) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "requirement_sets", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
+    t.integer "requirementSetGroupId"
+    t.string "description"
+    t.integer "unitId"
+    t.integer "requirementId"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "roles", charset: "utf8mb3", collation: "utf8mb3_unicode_ci", force: :cascade do |t|
     t.string "name"
     t.text "description"
@@ -235,6 +273,13 @@ ActiveRecord::Schema[7.1].define(version: 2024_09_02_043953) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "specializations", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
+    t.string "specialization"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
 
   create_table "task_comments", charset: "utf8mb3", collation: "utf8mb3_unicode_ci", force: :cascade do |t|
     t.bigint "task_id", null: false
