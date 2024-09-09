@@ -89,9 +89,8 @@ class ApiRoot < Grape::API
 
   mount Courseflow::CourseMapApi
   mount Courseflow::CourseMapUnitApi
+  mount Courseflow::CourseApi
 
-  mount Courseflow::CourseMapApi
-  mount Courseflow::CourseMapUnitApi
 
   mount Courseflow::RequirementSetApi
 
